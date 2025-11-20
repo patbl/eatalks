@@ -135,8 +135,6 @@ GEM
     roda (3.98.0)
       rack
     rouge (4.6.1)
-    rss (0.3.1)
-      rexml
     securerandom (0.4.1)
     serbea (2.4.0)
       erubi (>= 1.13)
@@ -171,7 +169,6 @@ PLATFORMS
 DEPENDENCIES
   bridgetown (~> 2.0.5)
   puma (< 8)
-  rss
 
 BUNDLED WITH
    2.7.2

@@ -34,9 +34,6 @@ gem "bridgetown", "~> 2.0.5"
 # (you can optionally limit this to the "development" group)
 gem "puma", "< 8"
 
-# RSS parsing
-gem "rss"
-
 # Uncomment to use the Inspectors API to manipulate the output
 # of your HTML or XML resources:
 # gem "nokogiri", "~> 1.18"
