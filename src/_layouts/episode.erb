@@ -7,32 +7,32 @@ layout: default
     <header class="episode-detail-header">
       <div class="episode-meta">
         <a href="/episodes" class="back-link">← All Episodes</a>
-        <span class="episode-number">#<%= resource.data.episode_number %></span>
+        <span class="episode-number">#<%= resource.data.data[:episode_number] %></span>
       </div>
 
       <h1><%= resource.data.title %></h1>
 
       <div class="episode-info">
-        <% if resource.data.pub_date %>
-          <time datetime="<%= resource.data.pub_date %>">
-            <%= resource.data.pub_date.strftime('%B %d, %Y') %>
+        <% if resource.data.data[:pub_date] %>
+          <time datetime="<%= resource.data.data[:pub_date] %>">
+            <%= resource.data.data[:pub_date].strftime('%B %d, %Y') %>
           </time>
         <% end %>
-        <% if resource.data.duration %>
-          <span class="duration"><%= format_duration(resource.data.duration) %></span>
+        <% if resource.data.data[:duration] %>
+          <span class="duration"><%= format_duration(resource.data.data[:duration]) %></span>
         <% end %>
       </div>
     </header>
 
     <div class="audio-player-wrapper">
       <audio controls class="audio-player" preload="metadata">
-        <source src="<%= resource.data.audio_url %>" type="audio/mpeg">
+        <source src="<%= resource.data.data[:audio_url] %>" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     </div>
 
     <div class="episode-description">
-      <%= resource.data.description %>
+      <%= resource.content.to_s.html_safe %>
     </div>
 
     <nav class="episode-navigation">

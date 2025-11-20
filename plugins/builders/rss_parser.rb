@@ -43,14 +43,16 @@ class Builders::RssParser < SiteBuilder
       episodes.each_with_index do |episode, index|
         slug = slugify(episode[:title])
 
+        episode_data = episode.merge({
+          episode_number: episodes.length - index,
+          slug: slug
+        })
+
         add_resource :episodes, "#{slug}.html" do
           layout :episode
-          title episode[:title]
-          content episode[:description]
-          data episode.merge({
-            episode_number: episodes.length - index,
-            slug: slug
-          })
+          title episode_data[:title]
+          content episode_data[:description]
+          data episode_data
         end
       end
     end
