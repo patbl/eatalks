@@ -7,8 +7,7 @@ class Builders::RssParser < SiteBuilder
       # Store podcast metadata
       site.data[:podcast] = {
         title: yaml_data['podcast']['title'],
-        image: yaml_data['podcast']['image'],
-        copyright: yaml_data['podcast']['copyright']
+        image: yaml_data['podcast']['image']
       }
 
       # Parse episodes and add S3 audio URLs
