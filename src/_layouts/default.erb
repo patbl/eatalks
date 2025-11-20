@@ -6,10 +6,10 @@
   <body class="<%= data.layout %> <%= data.page_class %>">
     <nav style="background: #2c5282; padding: 1rem 0;">
       <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
-        <a href="/1755269" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.5rem;"><%= site.metadata.title %></a>
+        <a href="<%= relative_url "/1755269" %>" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.5rem;"><%= site.metadata.title %></a>
         <div style="display: flex; gap: 2rem;">
-          <a href="/1755269" style="color: white; text-decoration: none; font-weight: 600;">Home</a>
-          <a href="/1755269/episodes" style="color: white; text-decoration: none; font-weight: 600;">Episodes</a>
+          <a href="<%= relative_url "/1755269" %>" style="color: white; text-decoration: none; font-weight: 600;">Home</a>
+          <a href="<%= relative_url "/1755269/episodes" %>" style="color: white; text-decoration: none; font-weight: 600;">Episodes</a>
         </div>
       </div>
     </nav>

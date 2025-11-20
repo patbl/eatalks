@@ -20,14 +20,14 @@ title: All Episodes
         </div>
 
         <div class="episode-content">
-          <h2><a href="/1755269/episodes/<%= episode[:slug] %>"><%= episode[:title] %></a></h2>
+          <h2><a href="<%= relative_url "/1755269/episodes/#{episode[:slug]}" %>"><%= episode[:title] %></a></h2>
           <p class="episode-summary"><%= truncate(episode[:summary], 300) %></p>
 
           <div class="episode-actions">
             <% if episode[:duration] %>
               <span class="duration"><%= format_duration(episode[:duration]) %></span>
             <% end %>
-            <a href="/1755269/episodes/<%= episode[:slug] %>" class="listen-link">Listen →</a>
+            <a href="<%= relative_url "/1755269/episodes/#{episode[:slug]}" %>" class="listen-link">Listen →</a>
           </div>
         </div>
       </article>

@@ -15,11 +15,14 @@
 # handles, etc., take a look at `src/_data/site_metadata.yml`
 
 Bridgetown.configure do |config|
-  # The base hostname & protocol for your site, e.g. https://example.com
-  url ""
-
   # Available options are `erb` (default), `serbea`, or `liquid`
   template_engine "erb"
+
+  # Set base_path and URL for GitHub Pages deployment
+  if Bridgetown.env.production?
+    url "https://patbl.github.io"
+    base_path "/eatalks2"
+  end
 
   # Other options you might want to investigate:
 

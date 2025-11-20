@@ -6,7 +6,7 @@ layout: default
   <div class="container">
     <header class="episode-detail-header">
       <div class="episode-meta">
-        <a href="/1755269/episodes" class="back-link">← All Episodes</a>
+        <a href="<%= relative_url "/1755269/episodes" %>" class="back-link">← All Episodes</a>
         <span class="episode-number">#<%= resource.data.data[:episode_number] %></span>
       </div>
 
@@ -41,7 +41,7 @@ layout: default
 
       <% if current_index && current_index < episodes.length - 1 %>
         <% prev_episode = episodes[current_index + 1] %>
-        <a href="/1755269/episodes/<%= prev_episode[:slug] %>" class="nav-link prev">
+        <a href="<%= relative_url "/1755269/episodes/#{prev_episode[:slug]}" %>" class="nav-link prev">
           <span class="nav-label">← Previous</span>
           <span class="nav-title"><%= truncate(prev_episode[:title], 60) %></span>
         </a>
@@ -51,7 +51,7 @@ layout: default
 
       <% if current_index && current_index > 0 %>
         <% next_episode = episodes[current_index - 1] %>
-        <a href="/1755269/episodes/<%= next_episode[:slug] %>" class="nav-link next">
+        <a href="<%= relative_url "/1755269/episodes/#{next_episode[:slug]}" %>" class="nav-link next">
           <span class="nav-label">Next →</span>
           <span class="nav-title"><%= truncate(next_episode[:title], 60) %></span>
         </a>

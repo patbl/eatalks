@@ -4,7 +4,7 @@ import build from "./config/esbuild.defaults.js"
 //
 // ```
 // import { copy } from 'esbuild-plugin-copy'
-// 
+//
 // const esbuildOptions = {
 //   plugins: [
 //     copy({
