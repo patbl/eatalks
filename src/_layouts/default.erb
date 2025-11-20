@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="<%= site.locale %>">
+  <head>
+    <%= render "head", metadata: site.metadata, title: data.title %>
+  </head>
+  <body class="<%= data.layout %> <%= data.page_class %>">
+    <nav style="background: #2c5282; padding: 1rem 0;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="/" style="color: white; text-decoration: none; font-weight: 700; font-size: 1.5rem;"><%= site.metadata.title %></a>
+        <div style="display: flex; gap: 2rem;">
+          <a href="/" style="color: white; text-decoration: none; font-weight: 600;">Home</a>
+          <a href="/episodes" style="color: white; text-decoration: none; font-weight: 600;">Episodes</a>
+        </div>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+    <footer style="background: #2d3748; color: white; padding: 2rem 0; margin-top: 4rem; text-align: center;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+        <p>&copy; <%= Time.now.year %> <%= site.metadata.title %>. <%= site.data.podcast ? site.data.podcast[:copyright] : '' %></p>
+      </div>
+    </footer>
+  </body>
+</html>

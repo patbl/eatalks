@@ -1,0 +1,52 @@
+---
+layout: default
+title: Home
+---
+
+<div class="hero">
+  <div class="hero-content">
+    <img src="<%= site.data.podcast[:image] %>" alt="<%= site.data.podcast[:title] %>" class="podcast-image">
+    <h1><%= site.data.podcast[:title] %></h1>
+    <p class="tagline"><%= site.data.podcast[:description] %></p>
+    <p class="author">Hosted by <%= site.data.podcast[:author] %></p>
+  </div>
+</div>
+
+<div class="container">
+  <section class="recent-episodes">
+    <h2>Recent Episodes</h2>
+
+    <div class="episodes-grid">
+      <% site.data.episodes.first(6).each_with_index do |episode, index| %>
+        <article class="episode-card">
+          <div class="episode-header">
+            <span class="episode-number">#<%= site.data.episodes.length - index %></span>
+            <% if episode[:duration] %>
+              <span class="episode-duration"><%= format_duration(episode[:duration]) %></span>
+            <% end %>
+          </div>
+
+          <h3><a href="/episodes/<%= slugify(episode[:title]) %>"><%= episode[:title] %></a></h3>
+
+          <p class="episode-summary"><%= truncate(episode[:summary], 200) %></p>
+
+          <div class="episode-footer">
+            <time datetime="<%= episode[:pub_date] %>">
+              <%= episode[:pub_date].strftime('%B %d, %Y') %>
+            </time>
+            <a href="/episodes/<%= slugify(episode[:title]) %>" class="listen-link">Listen →</a>
+          </div>
+        </article>
+      <% end %>
+    </div>
+
+    <div class="view-all">
+      <a href="/episodes" class="button">View All Episodes</a>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About the Podcast</h2>
+    <p><%= site.data.podcast[:description] %></p>
+  </section>
+</div>

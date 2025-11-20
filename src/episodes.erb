@@ -1,0 +1,36 @@
+---
+layout: default
+title: All Episodes
+---
+
+<div class="container">
+  <header class="page-header">
+    <h1>All Episodes</h1>
+    <p class="subtitle"><%= site.data.episodes.length %> episodes available</p>
+  </header>
+
+  <div class="episodes-list">
+    <% site.data.episodes.each_with_index do |episode, index| %>
+      <article class="episode-item">
+        <div class="episode-meta">
+          <span class="episode-number">#<%= site.data.episodes.length - index %></span>
+          <time datetime="<%= episode[:pub_date] %>">
+            <%= episode[:pub_date].strftime('%b %d, %Y') %>
+          </time>
+        </div>
+
+        <div class="episode-content">
+          <h2><a href="/episodes/<%= slugify(episode[:title]) %>"><%= episode[:title] %></a></h2>
+          <p class="episode-summary"><%= truncate(episode[:summary], 300) %></p>
+
+          <div class="episode-actions">
+            <% if episode[:duration] %>
+              <span class="duration"><%= format_duration(episode[:duration]) %></span>
+            <% end %>
+            <a href="/episodes/<%= slugify(episode[:title]) %>" class="listen-link">Listen →</a>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </div>
+</div>
