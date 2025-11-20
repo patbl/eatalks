@@ -38,11 +38,18 @@ class Builders::RssParser < SiteBuilder
           "#{episode_id}-#{slugify(item.title)}"
         end
 
+        # Replace Buzzsprout URL with S3 URL
+        s3_audio_url = if slug
+          "https://eatalks.s3.us-east-2.amazonaws.com/audio/#{slug}.mp3"
+        else
+          audio_url
+        end
+
         {
           title: item.title,
           description: strip_html(item.description),
           summary: item.itunes_summary ? strip_html(item.itunes_summary) : strip_html(item.description),
-          audio_url: audio_url,
+          audio_url: s3_audio_url,
           duration: duration_seconds,
           pub_date: item.pubDate,
           guid: item.guid&.content,
