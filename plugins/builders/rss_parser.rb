@@ -3,7 +3,13 @@ class Builders::RssParser < SiteBuilder
     hook :site, :pre_render do |site|
       site.data[:podcast] = {
         title: site.data.podcast['title'],
-        image: site.data.podcast['image']
+        description: site.data.podcast['description'],
+        image: site.data.podcast['image'],
+        owner_name: site.data.podcast['owner_name'],
+        owner_email: site.data.podcast['owner_email'],
+        explicit: site.data.podcast['explicit'],
+        language: site.data.podcast['language'],
+        categories: site.data.podcast['categories']
       }
 
       episodes = site.data.episodes.map do |episode|

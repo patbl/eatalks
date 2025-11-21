@@ -42,3 +42,4 @@ gem "puma", "< 8"
 # gem "nokolexbor", "~> 0.6"
 #
 gem 'openssl'
+gem 'rss'
