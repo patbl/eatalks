@@ -86,7 +86,6 @@ The site maintains compatibility with Buzzsprout's URL structure:
 - Production URL: `https://patbl.github.io/eatalks2`
 - Base path: `/eatalks2` (configured in `config/initializers.rb` for production only)
 - Workflow: `.github/workflows/gh-pages.yml` runs `bin/bridgetown deploy` on push to main
-- esbuild public path is automatically adjusted for production in `esbuild.config.js`
 
 ## Key Configuration Files
 
