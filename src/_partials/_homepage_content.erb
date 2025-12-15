@@ -29,7 +29,7 @@
 
           <h3><a href="<%= relative_url "/1755269/episodes/#{episode[:slug]}" %>"><%= episode[:title] %></a></h3>
 
-          <p class="episode-summary"><%= truncate(episode[:summary], 200) %></p>
+          <p class="episode-summary"><%= truncate(episode[:description], 200) %></p>
 
           <div class="episode-footer">
             <time datetime="<%= episode[:pub_date] %>">

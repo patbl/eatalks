@@ -25,7 +25,6 @@ class Builders::RssParser < SiteBuilder
         {
           title: episode['title'],
           description: episode['description'],
-          summary: episode['summary'],
           audio_url: s3_audio_url,
           duration: episode['duration'],
           pub_date: Time.parse(episode['pub_date']),
